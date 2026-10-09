@@ -151,6 +151,44 @@ const buildSteps = [
   },
 ]
 
+const documents = [
+  {
+    title: 'JD Pharma Consultants',
+    kind: 'Corporate presentation',
+    format: 'PPTX · PDF',
+    length: '15 slides',
+    description: 'Company profile for a turnkey pharmaceutical consultancy: services, regulatory expertise, engineering disciplines, and global projects.',
+    links: [
+      { label: 'View PDF', url: '/work/jd-pharma-corporate-presentation.pdf' },
+      { label: 'Download PPTX', url: '/work/jd-pharma-corporate-presentation.pptx', download: true },
+    ],
+  },
+  {
+    title: 'EUSP Queue Command Centre',
+    kind: 'Dashboard concept',
+    format: 'PPTX',
+    length: '12 slides',
+    description: 'A BMC Helix dashboard design for eight service queues across three regions, covering the health strip, queue table, SLA panels, and daily routine.',
+    links: [{ label: 'Download PPTX', url: '/work/eusp-queue-dashboard.pptx', download: true }],
+  },
+  {
+    title: 'Device Experience Monthly Report',
+    kind: 'Management report',
+    format: 'PPTX',
+    length: '12 slides',
+    description: 'A monthly leadership review with an executive summary, team dashboards, highlights, roadmap, and risks across device-management teams.',
+    links: [{ label: 'Download PPTX', url: '/work/device-experience-monthly-report.pptx', download: true }],
+  },
+  {
+    title: 'Application Packaging Request',
+    kind: 'Form build specification',
+    format: 'DOCX',
+    length: 'Word document',
+    description: 'A MyIT / BMC Helix self-service form specification covering fields, approvals, notifications, fulfilment routing, and open decisions.',
+    links: [{ label: 'Download DOCX', url: '/work/myit-form-build-spec.docx', download: true }],
+  },
+]
+
 const projects = [
   {
     name: 'CORSIA Carbon Credit',
@@ -182,18 +220,6 @@ const projects = [
     mark: 'RPL',
     number: '03',
   },
-  {
-    name: 'JD Pharma Consultants',
-    category: 'PHARMA · CORPORATE PRESENTATION',
-    description: 'A 15-slide corporate presentation for a turnkey pharmaceutical consultancy, covering services, compliance, and global projects.',
-    stack: ['Presentation design', 'Content structure', 'PowerPoint'],
-    links: [
-      { label: 'View PDF', url: '/work/jd-pharma-corporate-presentation.pdf' },
-      { label: 'Download PPTX', url: '/work/jd-pharma-corporate-presentation.pptx', download: true },
-    ],
-    mark: 'JD',
-    number: '04',
-  },
 ]
 
 export default createRoute((c) =>
@@ -210,6 +236,7 @@ export default createRoute((c) =>
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
+            <a href="#presentations">Presentations</a>
             <a href="#expertise">Expertise</a>
             <a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
           </nav>
@@ -382,13 +409,7 @@ export default createRoute((c) =>
                     <div class="tag-list">{project.stack.map((tag) => <span>{tag}</span>)}</div>
                     <div class="project-links">
                       {project.links.map((link) => (
-                        <a
-                          href={link.url}
-                          target={link.download ? undefined : '_blank'}
-                          rel="noreferrer"
-                          download={link.download}
-                          aria-label={`${project.name}: ${link.label}`}
-                        >
+                        <a href={link.url} target="_blank" rel="noreferrer" aria-label={`${project.name}: ${link.label}`}>
                           {link.label} <span aria-hidden="true">↗</span>
                         </a>
                       ))}
@@ -400,10 +421,49 @@ export default createRoute((c) =>
           </div>
         </section>
 
+        <section class="presentations section-pad" id="presentations">
+          <div class="container">
+            <div class="section-heading">
+              <div class="section-kicker"><span>06</span><span>PRESENTATIONS &amp; DOCUMENTS</span></div>
+              <h2>Decks and documents, <em>built to be read.</em></h2>
+              <p>
+                Presentations, reports, and specifications I have created, from story and structure to slide design, ready to view or
+                download.
+              </p>
+            </div>
+            <div class="document-grid">
+              {documents.map((doc) => (
+                <article class="document-card">
+                  <div class="document-meta">
+                    <span class="document-format">{doc.format}</span>
+                    <span>{doc.length}</span>
+                  </div>
+                  <span class="project-category">{doc.kind.toUpperCase()}</span>
+                  <h3>{doc.title}</h3>
+                  <p>{doc.description}</p>
+                  <div class="project-links">
+                    {doc.links.map((link) => (
+                      <a
+                        href={link.url}
+                        target={link.download ? undefined : '_blank'}
+                        rel="noreferrer"
+                        download={link.download}
+                        aria-label={`${doc.title}: ${link.label}`}
+                      >
+                        {link.label} <span aria-hidden="true">↗</span>
+                      </a>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section class="expertise section-pad" id="expertise">
           <div class="container">
             <div class="section-heading expertise-heading">
-              <div class="section-kicker"><span>06</span><span>WHAT I BRING</span></div>
+              <div class="section-kicker"><span>07</span><span>WHAT I BRING</span></div>
               <h2>Connecting the dots, <em>end to end.</em></h2>
             </div>
             <div class="expertise-grid">
@@ -426,7 +486,7 @@ export default createRoute((c) =>
         <section class="education section-pad">
           <div class="container education-grid">
             <div>
-              <div class="section-kicker"><span>07</span><span>FOUNDATIONS</span></div>
+              <div class="section-kicker"><span>08</span><span>FOUNDATIONS</span></div>
               <h2>Always learning.<br /><em>Always asking why.</em></h2>
             </div>
             <div class="credentials">
@@ -451,7 +511,7 @@ export default createRoute((c) =>
 
         <section class="contact section-pad" id="contact">
           <div class="container contact-panel">
-            <div class="section-kicker"><span>08</span><span>THE NEXT CHAPTER</span></div>
+            <div class="section-kicker"><span>09</span><span>THE NEXT CHAPTER</span></div>
             <div class="contact-content">
               <p class="eyebrow">HAVE A CHALLENGE TO UNPACK?</p>
               <h2>Let’s make the<br /><em>complicated clear.</em></h2>

@@ -797,7 +797,7 @@ button {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -830,11 +830,6 @@ button {
 .project-card:nth-child(3) .project-cover {
   background: #efe9e2;
   color: #9b644b;
-}
-
-.project-card:nth-child(4) .project-cover {
-  background: #e6ebee;
-  color: #3d5a6c;
 }
 
 .project-cover::after {
@@ -927,6 +922,63 @@ button {
 .project-links a:hover {
   color: var(--green-dark);
   text-decoration: underline;
+}
+
+.presentations {
+  background: #f6f5f0;
+}
+
+.document-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.document-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 22px;
+  border: 1px solid #e2e5df;
+  background: #fff;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.document-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(31, 41, 38, 0.08);
+}
+
+.document-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  color: #879087;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.document-format {
+  padding: 5px 8px;
+  border-radius: 3px;
+  background: #e8eee7;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.document-card h3 {
+  margin: 9px 0 7px;
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.document-card > p {
+  flex: 1;
+  margin: 0;
+  color: #727b75;
+  font-size: 11px;
+  line-height: 1.8;
 }
 
 .education {
@@ -1098,6 +1150,10 @@ button {
 @media (max-width: 900px) {
   .container {
     width: min(100% - 48px, 720px);
+  }
+
+  .site-nav {
+    gap: 24px;
   }
 
   .hero-grid {
@@ -1430,7 +1486,8 @@ button {
   }
 
   .expertise-grid,
-  .process-grid {
+  .process-grid,
+  .document-grid {
     grid-template-columns: 1fr;
   }
 
