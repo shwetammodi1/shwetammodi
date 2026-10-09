@@ -3,6 +3,7 @@ import { createRoute } from 'honox/factory'
 const experience = [
   {
     company: 'Capgemini',
+    logo: '/logos/capgemini.svg',
     period: 'Sep 2024 — Present',
     role: 'Business Analysis & Requirements',
     focus: 'Sony India Software Centre · IoT, Edge & Cloud',
@@ -15,6 +16,7 @@ const experience = [
   },
   {
     company: 'Kibo Commerce',
+    logo: '/logos/kibo.png',
     period: 'Jan 2023 — Jul 2024',
     role: 'Business Analysis & Product Requirements',
     focus: 'B2B and B2C commerce platform',
@@ -26,6 +28,7 @@ const experience = [
   },
   {
     company: 'UST',
+    logo: '/logos/ust.svg',
     period: 'Jan 2022 — Jan 2023',
     role: 'Business Analysis & API Requirements',
     focus: 'Enterprise client delivery',
@@ -36,6 +39,7 @@ const experience = [
   },
   {
     company: 'DXC Technology',
+    logo: '/logos/dxc.svg',
     period: 'Jul 2016 — Jan 2022',
     role: 'Business Analysis & Requirements',
     focus: 'Insurance platforms · P&C, Life & Annuity',
@@ -72,6 +76,12 @@ const expertise = [
     description: 'Thoughtful use of AI to speed up drafting and analysis, with human review for clarity, quality, and consistency.',
     tags: ['LLMs', 'Prompt design', 'Doxygen · Sphinx'],
   },
+  {
+    number: '05',
+    title: 'End-to-end web delivery',
+    description: 'Build projects from scratch, turning an idea into a user-focused interface, a responsive website, and a tested deployment.',
+    tags: ['UI/UX design', 'Web development', 'Testing · deployment'],
+  },
 ]
 
 const achievements = [
@@ -97,6 +107,48 @@ const tools = [
   'Claude',
   'Microsoft Copilot',
   'Gemini',
+  'HonoX',
+  'TypeScript',
+  'Cloudflare Pages',
+]
+
+const buildSteps = [
+  {
+    number: '01',
+    title: 'Analyse',
+    description: 'Understand the goal and the users, then work out exactly which features the application needs.',
+    tags: ['Discovery', 'Feature scoping', 'User stories'],
+  },
+  {
+    number: '02',
+    title: 'Design',
+    description: 'Shape user flows and wireframes into a clean, responsive interface that is easy to use.',
+    tags: ['User flows', 'Wireframes', 'UI design'],
+  },
+  {
+    number: '03',
+    title: 'Develop',
+    description: 'Build the application from scratch, with clear structure, reusable components, and maintainable code.',
+    tags: ['TypeScript', 'HonoX', 'Tailwind CSS'],
+  },
+  {
+    number: '04',
+    title: 'Integrate',
+    description: 'Connect the application to the services it relies on through well-defined, documented APIs.',
+    tags: ['REST APIs', 'JSON', 'Postman'],
+  },
+  {
+    number: '05',
+    title: 'Deploy',
+    description: 'Ship the project to a live server with a repeatable build and deployment workflow.',
+    tags: ['Cloudflare', 'GitHub', 'CI / CD'],
+  },
+  {
+    number: '06',
+    title: 'Test',
+    description: 'Verify every feature against its requirements and refine until it works reliably for real users.',
+    tags: ['Functional testing', 'UAT', 'Bug fixing'],
+  },
 ]
 
 const projects = [
@@ -105,27 +157,42 @@ const projects = [
     category: 'CLIMATE · MARKETPLACE',
     description: 'A carbon-credit marketplace with advisory services and a knowledge base.',
     stack: ['Carbon markets', 'Advisory', 'Knowledge base'],
-    url: 'https://github.com/shwetammodi1/corsiacarboncredit',
+    links: [{ label: 'corsiacarboncredit.in', url: 'https://corsiacarboncredit.in/' }],
     mark: 'CO₂',
     number: '01',
   },
   {
-    name: 'Netra Optical',
-    category: 'RETAIL · WEBSITE',
-    description: 'A marketing website for an independent optician in South Tukoganj, Indore.',
-    stack: ['HonoX', 'TypeScript', 'Cloudflare Pages'],
-    url: 'https://github.com/shwetammodi1/Netra-Optical',
-    mark: 'NO',
+    name: 'Workie Legal',
+    category: 'LEGAL · APPLICATION',
+    description: 'A legal application for managing contracts and contractual work, from drafting through to tracking.',
+    stack: ['Contract management', 'Legal workflows', 'Web application'],
+    links: [{ label: 'workie-legal-fe-frontend.pages.dev', url: 'https://workie-legal-fe-frontend.pages.dev/' }],
+    mark: 'WL',
     number: '02',
   },
   {
-    name: 'EcraftMedia',
-    category: 'DIGITAL · PORTFOLIO',
-    description: 'A digital-solutions website and portfolio.',
-    stack: ['Digital solutions', 'Website', 'Portfolio'],
-    url: 'https://github.com/shwetammodi1/ecraftmedia',
-    mark: 'EM',
+    name: 'RPL Maheshwari College',
+    category: 'EDUCATION · ERP',
+    description: 'A college website with a full college ERP system and an admin panel to manage everything.',
+    stack: ['College ERP', 'Admin panel', 'Website'],
+    links: [
+      { label: 'rplmaheshwari.com', url: 'https://rplmaheshwari.com/' },
+      { label: 'Admin panel', url: 'https://admin.rplmaheshwari.com/' },
+    ],
+    mark: 'RPL',
     number: '03',
+  },
+  {
+    name: 'JD Pharma Consultants',
+    category: 'PHARMA · CORPORATE PRESENTATION',
+    description: 'A 15-slide corporate presentation for a turnkey pharmaceutical consultancy, covering services, compliance, and global projects.',
+    stack: ['Presentation design', 'Content structure', 'PowerPoint'],
+    links: [
+      { label: 'View PDF', url: '/work/jd-pharma-corporate-presentation.pdf' },
+      { label: 'Download PPTX', url: '/work/jd-pharma-corporate-presentation.pptx', download: true },
+    ],
+    mark: 'JD',
+    number: '04',
   },
 ]
 
@@ -236,9 +303,14 @@ export default createRoute((c) =>
                   <div class="timeline-date">{item.period}</div>
                   <div class="timeline-card">
                     <div class="timeline-topline">
-                      <div>
-                        <h3>{item.company}</h3>
-                        <p class="role-name">{item.role}</p>
+                      <div class="company-id">
+                        <span class="company-logo">
+                          <img src={item.logo} alt={`${item.company} logo`} loading="lazy" />
+                        </span>
+                        <div>
+                          <h3>{item.company}</h3>
+                          <p class="role-name">{item.role}</p>
+                        </div>
                       </div>
                       {item.current && <span class="current-badge"><span></span> CURRENT</span>}
                     </div>
@@ -256,11 +328,34 @@ export default createRoute((c) =>
           </div>
         </section>
 
+        <section class="process section-pad" id="process">
+          <div class="container">
+            <div class="section-heading">
+              <div class="section-kicker"><span>04</span><span>HOW I BUILD</span></div>
+              <h2>From idea to <em>live application.</em></h2>
+              <p>
+                Beyond requirements, I develop projects from scratch — analysing what an application needs, designing the UI, building
+                it, integrating APIs, deploying it to a server, and testing it end to end.
+              </p>
+            </div>
+            <div class="process-grid">
+              {buildSteps.map((step) => (
+                <article class="process-card">
+                  <span class="expertise-number">{step.number}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                  <div class="tag-list">{step.tags.map((tag) => <span>{tag}</span>)}</div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section class="projects section-pad" id="projects">
           <div class="container">
             <div class="section-heading projects-heading">
               <div>
-                <div class="section-kicker"><span>04</span><span>SELECTED PROJECTS</span></div>
+                <div class="section-kicker"><span>05</span><span>SELECTED PROJECTS</span></div>
                 <h2>Ideas made <em>real.</em></h2>
               </div>
               <a
@@ -275,25 +370,30 @@ export default createRoute((c) =>
             <div class="projects-grid">
               {projects.map((project) => (
                 <article class="project-card">
-                  <a
-                    class="project-link"
-                    href={project.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`View ${project.name} on GitHub`}
-                  >
-                    <div class="project-cover">
-                      <span class="project-index">{project.number} / 03</span>
-                      <span class="project-mark" aria-hidden="true">{project.mark}</span>
-                      <span class="project-arrow" aria-hidden="true">↗</span>
+                  <div class="project-cover">
+                    <span class="project-index">{project.number} / {String(projects.length).padStart(2, '0')}</span>
+                    <span class="project-mark" aria-hidden="true">{project.mark}</span>
+                    <span class="project-arrow" aria-hidden="true">↗</span>
+                  </div>
+                  <div class="project-copy">
+                    <span class="project-category">{project.category}</span>
+                    <h3>{project.name}</h3>
+                    <p>{project.description}</p>
+                    <div class="tag-list">{project.stack.map((tag) => <span>{tag}</span>)}</div>
+                    <div class="project-links">
+                      {project.links.map((link) => (
+                        <a
+                          href={link.url}
+                          target={link.download ? undefined : '_blank'}
+                          rel="noreferrer"
+                          download={link.download}
+                          aria-label={`${project.name}: ${link.label}`}
+                        >
+                          {link.label} <span aria-hidden="true">↗</span>
+                        </a>
+                      ))}
                     </div>
-                    <div class="project-copy">
-                      <span class="project-category">{project.category}</span>
-                      <h3>{project.name}</h3>
-                      <p>{project.description}</p>
-                      <div class="tag-list">{project.stack.map((tag) => <span>{tag}</span>)}</div>
-                    </div>
-                  </a>
+                  </div>
                 </article>
               ))}
             </div>
@@ -303,7 +403,7 @@ export default createRoute((c) =>
         <section class="expertise section-pad" id="expertise">
           <div class="container">
             <div class="section-heading expertise-heading">
-              <div class="section-kicker"><span>05</span><span>WHAT I BRING</span></div>
+              <div class="section-kicker"><span>06</span><span>WHAT I BRING</span></div>
               <h2>Connecting the dots, <em>end to end.</em></h2>
             </div>
             <div class="expertise-grid">
@@ -326,7 +426,7 @@ export default createRoute((c) =>
         <section class="education section-pad">
           <div class="container education-grid">
             <div>
-              <div class="section-kicker"><span>06</span><span>FOUNDATIONS</span></div>
+              <div class="section-kicker"><span>07</span><span>FOUNDATIONS</span></div>
               <h2>Always learning.<br /><em>Always asking why.</em></h2>
             </div>
             <div class="credentials">
@@ -351,7 +451,7 @@ export default createRoute((c) =>
 
         <section class="contact section-pad" id="contact">
           <div class="container contact-panel">
-            <div class="section-kicker"><span>07</span><span>THE NEXT CHAPTER</span></div>
+            <div class="section-kicker"><span>08</span><span>THE NEXT CHAPTER</span></div>
             <div class="contact-content">
               <p class="eyebrow">HAVE A CHALLENGE TO UNPACK?</p>
               <h2>Let’s make the<br /><em>complicated clear.</em></h2>

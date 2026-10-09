@@ -4,6 +4,8 @@ dist/
 # Original files are kept at the workspace root; the deployable copies live in public/.
 /profilejob.jpeg
 /Shwetam_Modi_Business_Analyst_CV.pdf
+/JD_Pharma_Corporate_Presentation.pdf
+/JD_Pharma_Corporate_Presentation.pptx
 
 # dev
 .hono/

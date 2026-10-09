@@ -559,6 +559,30 @@ button {
   font-weight: 650;
 }
 
+.company-id {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.company-logo {
+  display: grid;
+  flex: none;
+  width: 92px;
+  height: 46px;
+  padding: 7px 10px;
+  place-items: center;
+  border: 1px solid #e2e5df;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.company-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
 .role-name {
   margin: 6px 0 0;
   color: var(--green);
@@ -717,6 +741,39 @@ button {
   background: #e3e6de;
 }
 
+.process {
+  background: #f0f1eb;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #d9ddd4;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.process-card {
+  min-height: 210px;
+  padding: 25px 28px;
+  border-right: 1px solid #d9ddd4;
+  border-bottom: 1px solid #d9ddd4;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.process-card h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.process-card p {
+  margin: 10px 0 17px;
+  color: #727b75;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
 .projects {
   background: #fff;
 }
@@ -740,7 +797,7 @@ button {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -754,11 +811,6 @@ button {
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 28px rgba(31, 41, 38, 0.08);
-}
-
-.project-link {
-  display: block;
-  height: 100%;
 }
 
 .project-cover {
@@ -778,6 +830,11 @@ button {
 .project-card:nth-child(3) .project-cover {
   background: #efe9e2;
   color: #9b644b;
+}
+
+.project-card:nth-child(4) .project-cover {
+  background: #e6ebee;
+  color: #3d5a6c;
 }
 
 .project-cover::after {
@@ -848,6 +905,28 @@ button {
 .project-copy .tag-list span {
   padding: 5px 7px;
   font-size: 8px;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 16px;
+}
+
+.project-links a {
+  display: inline-flex;
+  gap: 8px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  transition: color 160ms ease;
+}
+
+.project-links a:hover {
+  color: var(--green-dark);
+  text-decoration: underline;
 }
 
 .education {
@@ -1045,6 +1124,10 @@ button {
 
   .impact-card {
     padding: 22px 17px;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
   }
 
   .timeline,
@@ -1318,6 +1401,16 @@ button {
     line-height: 1.5;
   }
 
+  .company-id {
+    gap: 11px;
+  }
+
+  .company-logo {
+    width: 72px;
+    height: 38px;
+    padding: 6px 8px;
+  }
+
   .current-badge {
     padding: 6px;
     font-size: 7px;
@@ -1336,8 +1429,14 @@ button {
     gap: 21px;
   }
 
-  .expertise-grid {
+  .expertise-grid,
+  .process-grid {
     grid-template-columns: 1fr;
+  }
+
+  .process-card {
+    min-height: auto;
+    padding: 22px;
   }
 
   .expertise-card {
